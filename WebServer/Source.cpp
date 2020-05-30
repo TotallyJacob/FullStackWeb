@@ -1,5 +1,6 @@
 #include<winsock.h>
 
+
 int main() {
 
 	WSADATA wsaData;
