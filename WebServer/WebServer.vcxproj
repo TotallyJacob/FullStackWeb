@@ -148,22 +148,17 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
-  
-    <ItemGroup>
-      <ProjectToBuild Include="$(SolutionDir)PrecompileProgram\PrecompileProgram.vcxproj">
+  <ItemGroup>
+    <ProjectToBuild Include="$(SolutionDir)PrecompileProgram\PrecompileProgram.vcxproj">
       <Properties>Configuration=$(Configuration)</Properties>
     </ProjectToBuild>
-
     <Binaries Include="*.dll;*.exe" />
-	
   </ItemGroup>
-  
   <Target Name="BeforeBuild">
-		<Message Text="#### Building PrecompileProgram ####" Importance="high" />
-		<MSBuild Projects="@(ProjectToBuild)" />
-		<Message Text="#### Running PrecompileProgram ####" Importance="high" />
-		<Exec Command="$(SolutionDir)x64/Debug/PrecompileProgram.exe  %(Binaries.Identity)" />
-		<Message Text="#### Finished Running PrecompileProgram ####" Importance="high" />
+    <Message Text="#### Building PrecompileProgram ####" Importance="high" />
+    <MSBuild Projects="@(ProjectToBuild)" />
+    <Message Text="#### Running PrecompileProgram ####" Importance="high" />
+    <Exec Command="$(SolutionDir)x64/Debug/PrecompileProgram.exe  %(Binaries.Identity)" />
+    <Message Text="#### Finished Running PrecompileProgram ####" Importance="high" />
   </Target>
-  
 </Project>
